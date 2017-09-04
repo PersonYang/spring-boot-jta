@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans-4.3.xsd
+    http://code.alibabatech.com/schema/dubbo
+    http://code.alibabatech.com/schema/dubbo/dubbo.xsd">
+
+    <!-- 当前项目在分布式项目中的唯一名称 -->
+    <dubbo:application name="user-provider" />
+
+    <!-- 服务地址 -->
+    <dubbo:registry protocol="zookeeper"  address="192.168.1.6:2181,192.168.1.7:2181,192.168.1.8:2181" />
+
+    <dubbo:reference interface="com.young.facade.service.IUserService" id="userService" />
+
+
+</beans>
